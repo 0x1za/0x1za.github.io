@@ -814,3 +814,34 @@ body.darkmode .home-announcement:hover .pill {
   display: block;
   margin: 0 auto;
 }
+
+/* Transparency fix for logos with baked-in white backgrounds */
+.main-logo-image, .navbar-logo img {
+  mix-blend-mode: multiply;
+}
+
+body.darkmode .main-logo-image, body.darkmode .navbar-logo img {
+  mix-blend-mode: screen;
+  filter: invert(1);
+}
+
+/* Navbar Logo & Title Alignment */
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-logo-image {
+  height: 32px;
+  width: auto;
+}
+
+.navbar-site-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}

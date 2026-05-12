@@ -1,7 +1,10 @@
 <div id="header">
   <div class="site-header">
     <div class="navbar-logo">
-      <a href="/"><img src="/images/logo.png" alt="{{ .Site.Title }}" style="height: 32px; width: auto;"></a>
+      <a href="/">
+        <img src="/images/logo.png" alt="{{ .Site.Title }}" class="navbar-logo-image">
+        <span class="navbar-site-title">{{ .Site.Title }}</span>
+      </a>
     </div>
 
     <div class="nav-group">
