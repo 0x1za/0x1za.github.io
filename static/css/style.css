@@ -805,3 +805,12 @@ body.darkmode .home-announcement:hover .pill {
   }
 }
 
+
+/* Image Logo Styles */
+.main-logo-image {
+  max-width: 300px;
+  height: auto;
+  animation: float 7s ease-in-out infinite;
+  display: block;
+  margin: 0 auto;
+}
