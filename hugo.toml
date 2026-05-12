@@ -1,0 +1,47 @@
+baseURL = '/'
+locale = 'en-us'
+title = 'The Constant Factor'
+paginate = 20
+
+[params]
+  description = "A research blog"
+  author      = "0x1za"
+  copyright   = "2026"
+  
+  # Homepage Logo Banner
+  logoText = "The Constant<br/>Factor"
+
+  [[params.nav]]
+    name = "Thoughts"
+    url  = "/blog/"
+
+  [[params.nav]]
+    name = "Projects"
+    url  = "/projects/"
+
+  [[params.nav]]
+    name = "About"
+    url  = "/about/"
+
+  [[params.nav]]
+    name = "Scholar"
+    url  = "https://scholar.google.com/citations?user=soZWeewAAAAJ&hl=en"
+
+  [[params.nav]]
+    name = "RSS"
+    url  = "/index.xml"
+
+  [[params.footerLinks]]
+    name = "RSS"
+    url  = "/index.xml"
+
+  [[params.footerLinks]]
+    name = "Scholar"
+    url  = "https://scholar.google.com/citations?user=soZWeewAAAAJ&hl=en"
+
+  [[params.footerLinks]]
+    name = "GitHub"
+    url  = "https://github.com/"
+
+[markup.goldmark.renderer]
+  unsafe = true

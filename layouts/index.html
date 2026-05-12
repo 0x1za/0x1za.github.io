@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div id="main" class="index content">
+  <div role="banner" class="logo-container">
+    <a class="logo" href="/">{{ .Site.Params.logoText | safeHTML }}</a>
+  </div>
+
+  <article class="page-content">
+    {{ .Content }}
+  </article>
+</div>
+{{ end }}
