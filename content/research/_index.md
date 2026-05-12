@@ -7,9 +7,6 @@ I'm interested in computer vision, machine learning, optimization, graphics and 
 <div class="publication-list">
 
   <div class="publication-item">
-    <div class="pub-image">
-      <img src="/images/cote-score.png" alt="COTe Score diagram">
-    </div>
     <div class="pub-info">
       <div class="pub-title">The COTe score: A decomposable framework for evaluating Document Layout Analysis models</div>
       <div class="pub-authors">Jonathan Bourne, **Mwiza Simbeye**, Ishtar Govia</div>
@@ -25,9 +22,6 @@ I'm interested in computer vision, machine learning, optimization, graphics and 
   </div>
 
   <div class="publication-item">
-    <div class="pub-image">
-      <img src="/images/cev-paper.png" alt="CEV Paper diagram">
-    </div>
     <div class="pub-info">
       <div class="pub-title">The Character Error Vector: Decomposable errors for page-level OCR evaluation</div>
       <div class="pub-authors">Jonathan Bourne, **Mwiza Simbeye**, Joseph Nockels</div>
