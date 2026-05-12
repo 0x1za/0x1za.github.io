@@ -12,6 +12,10 @@ paginate = 20
   logoText = "The Constant<br/>Factor"
 
   [[params.nav]]
+    name = "Research"
+    url  = "/research/"
+
+  [[params.nav]]
     name = "Thoughts"
     url  = "/blog/"
 
@@ -22,14 +26,6 @@ paginate = 20
   [[params.nav]]
     name = "About"
     url  = "/about/"
-
-  [[params.nav]]
-    name = "Scholar"
-    url  = "https://scholar.google.com/citations?user=soZWeewAAAAJ&hl=en"
-
-  [[params.nav]]
-    name = "RSS"
-    url  = "/index.xml"
 
   [[params.footerLinks]]
     name = "RSS"
