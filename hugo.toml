@@ -1,5 +1,5 @@
 baseURL = '/'
-locale = 'en-us'
+languageCode = 'en-us'
 title = 'The Constant Factor'
 paginate = 20
 
