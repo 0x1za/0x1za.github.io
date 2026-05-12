@@ -1,7 +1,10 @@
 {{ define "main" }}
 <div id="main" class="index content">
   <div role="banner" class="logo-container">
-    <a href="/"><img src="/images/logo.png" alt="{{ .Site.Title }}" class="main-logo-image"></a>
+    <a href="/">
+      <img src="/images/logo.png" alt="{{ .Site.Title }}" class="main-logo-image">
+      <div class="main-logo-title">{{ .Site.Title }}</div>
+    </a>
   </div>
 
   <article class="page-content">
