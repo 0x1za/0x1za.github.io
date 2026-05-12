@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = 'https://0x1za.github.io/'
 languageCode = 'en-us'
 title = 'The Constant Factor'
 paginate = 20
