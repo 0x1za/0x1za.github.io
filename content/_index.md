@@ -1,5 +1,4 @@
 ---
-title: "The Constant Factor"
 ---
 
 I am a computer scientist and software engineer focused on the intersection of **Computer Vision research** and **Practical Systems Engineering**.
