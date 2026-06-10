@@ -14,6 +14,17 @@ this post is about why, and what to measure instead.
 
 <link rel="stylesheet" href="/css/cote.css">
 
+## Photos aren't pages
+
+The metrics every layout model reports — IoU, F1, mAP — were built for
+**photographs**: 2D projections of a 3D world where objects overlap and occlude
+each other. A document page is a different beast. It's a 2D *tessellation*:
+text tiles the surface with no gaps and, crucially, no overlaps.
+
+<div class="cote-widget">
+  <div id="cote-odvspage"></div>
+</div>
+
 ## The granularity trap
 
 The parse below is **perfect** — every word is captured exactly once. The only
