@@ -14,6 +14,16 @@ this post is about why, and what to measure instead.
 
 <link rel="stylesheet" href="/css/cote.css">
 
+## The granularity trap
+
+The parse below is **perfect** — every word is captured exactly once. The only
+thing that changes is how finely the boxes are drawn. Watch F1 collapse while
+COTe barely flinches.
+
+<div class="cote-widget">
+  <div id="cote-granularity"></div>
+</div>
+
 ## A better question: decompose the error
 
 <div class="cote-widget">
