@@ -59,3 +59,16 @@
 @media (prefers-reduced-motion: reduce) {
   .cote-predbox { transition: none !important; }
 }
+
+/* Real-figure illustrations (raster images keep a light card so white-background
+   figures read intentionally in both light and dark themes). */
+.cote-figure { margin: 1.5rem auto; max-width: 560px; }
+.cote-figure img {
+  display: block; width: 100%; height: auto;
+  background: #fff; border-radius: 8px; padding: 0.5rem;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+}
+.cote-figure figcaption {
+  margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.75; text-align: center;
+}
+.cote-figure--photo img { padding: 0; }

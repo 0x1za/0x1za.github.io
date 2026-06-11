@@ -14,12 +14,37 @@ Production-ready? You genuinely can't tell — and that's not your fault. The
 metric itself is the problem. This is a 10-minute tour of *why*, and of a
 small library that gives you an answer you can act on.
 
+## The metrics everyone already uses
+
+Train a layout model today and three numbers come out of the box, all inherited
+from general object detection:
+
+- **IoU** (Intersection over Union) — how much a predicted box and a
+  ground-truth box overlap, as a fraction of their combined area. It's the basic
+  yardstick: line the two boxes up, divide the shared area by the total.
+- **F1** — once IoU decides which predictions "count" (usually IoU > 0.5),
+  precision and recall fold into a single hit-rate.
+- **mAP** (mean Average Precision) — the headline leaderboard number: the area
+  under the precision–recall curve, averaged across classes.
+
+<figure class="cote-figure cote-figure--photo">
+  <img src="/images/iou_stop_sign.webp" alt="A stop sign with a green ground-truth bounding box and an offset red predicted bounding box; IoU measures their overlap.">
+  <figcaption>IoU: the overlap between the predicted box (red) and the ground-truth box (green), divided by their union.</figcaption>
+</figure>
+
+These won the field for good reasons. They're simple, they powered the
+benchmarks — PASCAL VOC, COCO — that drove the object-detection boom, and every
+dataset and tool reports them, so they're the common language for comparing
+models. Document-layout models adopted them by default.
+
+The trouble is that a page isn't a photograph.
+
 ## Photos aren't pages
 
-The metrics every layout model reports — IoU, F1, mAP — were built for
-**photographs**: 2D projections of a 3D world where objects overlap and occlude
-each other. A document page is a different beast. It's a 2D *tessellation*:
-text tiles the surface with no gaps and, crucially, no overlaps.
+IoU, F1, and mAP were built for **photographs**: 2D projections of a 3D world
+where objects overlap and occlude each other. A document page is a different
+beast. It's a 2D *tessellation*: text tiles the surface with no gaps and,
+crucially, no overlaps.
 
 <div class="cote-widget">
   <div id="cote-odvspage"></div>
@@ -67,11 +92,36 @@ $$\text{COTe} = \mathcal{C} - \mathcal{O} - \mathcal{T}$$
 Coverage you want; Overlap and Trespass you pay for. A perfect parse is `1.0`;
 a single box smeared across the whole page can even go **negative**.
 
+That phrase "semantic unit" is doing real work. COTe groups the ground-truth
+text into **Structural Semantic Units (SSUs)** — blocks that belong together,
+like one article in one column — instead of scoring loose individual lines. A
+box only *trespasses* when it crosses from one unit into another.
+
+<figure class="cote-figure">
+  <img src="/images/example_ssu.png" alt="A two-column page of three limericks, each split into Structural Semantic Units outlined in red, blue, and green.">
+  <figcaption>The same page, divided into Structural Semantic Units (SSU 1, 2, 3) across two columns.</figcaption>
+</figure>
+
+Run a real prediction over those units and the four COTe signals light up
+exactly like the interactive above — green where a box cleanly covers content,
+yellow where boxes stack, red where one trespasses into a neighbour, purple
+where it does both:
+
+<figure class="cote-figure">
+  <img src="/images/example_cote_components.png" alt="The limerick page shaded by COTe component: green coverage, yellow overlap, red trespass, purple overlap-plus-trespass, blue excess.">
+  <figcaption>COTe components on a real page — the same colour language as the interactive.</figcaption>
+</figure>
+
 ## Real models, real failures
 
 Here's the payoff. On the same newspaper page, three popular models earn wildly
 different COTe scores — and the *decomposition* tells you exactly how each one
 fails, not just that it did.
+
+<figure class="cote-figure">
+  <img src="/images/TTW_1868-05-16_page_5.png" alt="One 1868 newspaper page parsed by three models — YOLO, Heron, and PP-DocLayout-L — each shaded by COTe component. YOLO is heavily red and yellow; Heron and PP-DocLayout are mostly green.">
+  <figcaption>One page, three models. YOLO (left) drowns in red trespass and yellow overlap; Heron (centre) and PP-DocLayout-L (right) stay mostly clean green.</figcaption>
+</figure>
 
 <div class="cote-widget" id="cote-failuremodes">
   <p class="cote-widget__title">One page, three verdicts</p>
