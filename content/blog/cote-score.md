@@ -52,18 +52,22 @@ crucially, no overlaps.
 
 ## The granularity trap
 
-The parse below is **perfect** — every word is captured exactly once. The only
-thing that changes is how finely the boxes are drawn. Watch F1 collapse while
-COTe barely flinches.
+Here's the same page content scored two ways. The ground truth labels it as
+three lines (left); the model draws its own boxes over the *identical* text
+(right). Every word is captured exactly once — the parse is perfect. Only the
+box granularity changes. Flip between **coarser**, **aligned**, and **finer**.
 
 <div class="cote-widget">
   <div id="cote-granularity"></div>
 </div>
 
-Same parse, same extracted text — yet F1 reads it as a near-total failure
-(**0.32**) the instant the model's boxes don't line up with the labeller's
-granularity. That mismatch is the rule, not the exception, and it's why a low
-mAP tells you so little.
+F1 pairs boxes one-to-one by overlap, so it only scores well when the model's
+granularity happens to match the labels — the **aligned** case, where every box
+finds a partner (green lines). A notch coarser or finer and those matches
+vanish: the predictions turn red, F1 collapses to **0.00**, even though the
+extracted text is *identical*. COTe scores against the whole semantic unit, so
+it stays pinned at **1.00**. That sensitivity to an arbitrary labelling choice
+is exactly why a low mAP tells you so little.
 
 ## A better question: decompose the error
 
