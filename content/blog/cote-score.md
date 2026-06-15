@@ -2,7 +2,7 @@
 title: "Why your document parser's mAP is lying to you"
 date: 2026-06-11
 draft: false
-author: "Mwiza Simbeye"
+author: ["Jonathan Bourne", "Mwiza Simbeye", "Ishtar Govia"]
 description: "A 10-minute, interactive tour of the COTe score — why IoU, F1, and mAP mislead on documents, and what to measure instead."
 tags: ["document-ai", "evaluation", "computer-vision"]
 ---

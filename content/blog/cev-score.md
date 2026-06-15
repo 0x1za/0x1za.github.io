@@ -2,7 +2,7 @@
 title: "Your OCR's error rate is undefined — and you don't know it"
 date: 2026-06-15
 draft: false
-author: "Mwiza Simbeye"
+author: ["Jonathan Bourne", "Mwiza Simbeye", "Joseph Nockels"]
 description: "An interactive tour of the Character Error Vector (CEV) — why CER silently breaks on real documents, and how to split OCR error from parsing error."
 tags: ["document-ai", "ocr", "evaluation"]
 ---

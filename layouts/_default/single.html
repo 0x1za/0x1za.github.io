@@ -7,7 +7,7 @@
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
         {{ with .Params.author }}
           <span class="post-sep">·</span>
-          <span class="post-author">{{ . }}</span>
+          <span class="post-author">{{ if reflect.IsSlice . }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}</span>
         {{ end }}
       </div>
     </header>
