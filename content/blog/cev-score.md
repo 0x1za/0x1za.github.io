@@ -75,7 +75,11 @@ Pulling it apart is the point. The CEV defines four vectors:
 
 and reads three errors off the differences between them:
 
-$$d_{\text{pars}} = d(R \parallel Q) \qquad d_{\text{ocr}} = d(S^{*} \parallel Q) \qquad d_{\text{int}} = d(S \parallel R)$$
+$$d_{\text{pars}} = d(R \parallel Q)$$
+
+$$d_{\text{ocr}} = d(S^{*} \parallel Q)$$
+
+$$d_{\text{int}} = d(S \parallel R)$$
 
 with the end-to-end total $d_{\text{total}} = d(S \parallel Q)$. (Because these
 come from high-dimensional vectors, the parts are *not* additive —
@@ -107,7 +111,9 @@ The CEV is a family, not a single formula. The most familiar member is
 **SpACER** — the Spatially Aware Character Error Rate — which blends the
 normalisation of total-variation distance with CER's deletion sensitivity:
 
-$$\text{SpACER} = \frac{D + \hat{E}}{2C} \qquad \hat{E} = \lVert g - p \rVert_1 \qquad D = \max(0, |g| - |p|)$$
+$$\text{SpACER} = \frac{D + \hat{E}}{2C}$$
+
+$$\hat{E} = \lVert g - p \rVert_1 \qquad D = \max(0, |g| - |p|)$$
 
 where $g$ and $p$ are the ground-truth and predicted character-count vectors and
 $C = |g|$. It behaves like CER — it can even exceed 1 — and across the

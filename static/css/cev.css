@@ -71,6 +71,17 @@
   .cev-flow path, .cev-bar { transition: none !important; }
 }
 
+/* The article is an item in a column flexbox (#main is display:flex) and resolves
+   to a shrink-to-fit width that can exceed the container on mobile (then clipped
+   by the site's overflow-x:hidden). Force it to fill #main so children shrink to
+   fit and handle their own overflow. */
+.post-single { width: 100%; min-width: 0; }
+
+/* Keep wide display math and tables from stretching the content column past the
+   viewport on narrow screens — they scroll internally instead. */
+.post-body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.post-body table { display: block; width: max-content; max-width: 100%; overflow: auto; }
+
 /* Real-figure illustrations (shared visual language with .cote-figure). */
 .cev-figure { margin: 1.5rem auto; max-width: 620px; }
 .cev-figure img {
